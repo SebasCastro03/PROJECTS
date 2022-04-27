@@ -1,46 +1,48 @@
-let bo = document.getElementById('borigen');
-let bd = document.getElementById('bdestino');
+let bo = document.getElementById('bOrigen');
+let bd = document.getElementById('bDestino');
 const boton = document.getElementById('transferir');
 let saldo = document.getElementById('saldo');
-let saldoini = document.getElementById('sinicial');
-let saldofin = document.getElementById('sfinal');
+let saldoIni = document.getElementById('sInicial');
+let saldoFin = document.getElementById('sFinal');
 let comision = document.getElementById('comision1');
-let vr = document.getElementById('vtransf');
+let vr = document.getElementById('vTransf');
 
 boton.addEventListener("click", operacion);
 
 function operacion() {
-  let banco_cliente = bo.value;
+  let bancoCliente = bo.value;
   let valor = parseInt(vr.value);
-  const cuenta_cliente = true;
-  let saldo_cliente = parseInt(saldo.value);
-  let banco_destino = bd.value;
-  const cuenta_destino = true;
+  const cuentaCliente = true;
+  let saldoCliente = parseInt(saldo.value);
+  let bancoDestino = bd.value;
+  const cuentaDestino = true;
   let hora = 19;
 
-  if (cuenta_cliente && cuenta_destino) {
+  if (cuentaCliente && cuentaDestino) {
     if ((hora >= 9 && hora <= 12) || (hora >= 15 && hora <= 20)) {
-      saldoini.innerHTML = 'Saldo incial: $ ' + saldo_cliente;
-      if (banco_cliente == banco_destino) {
-        let vr_comision = parseInt(0);
-        comision.innerHTML = 'Valor comision transferencia: $ ' + vr_comision;
-        if ((vr_comision + valor) <= saldo_cliente) {
-          saldo_cliente -= vr_comision + valor;
-          saldofin.innerHTML = 'Saldo final: $ ' + saldo_cliente;
+      saldoIni.innerHTML = 'Saldo incial: $ ' + saldoCliente;
+      if (bancoCliente == bancoDestino) {
+        let vrComision = parseInt(0);
+        if ((vrComision + valor) <= saldoCliente) {
+          comision.innerHTML = 'Valor comision transferencia: $ ' + vrComision;
+          saldoCliente -= vrComision + valor;
+          saldoFin.innerHTML = 'Saldo final: $ ' + saldoCliente;
         }
-        else if ((vr_comision + valor) > saldo_cliente) {
+        else if ((vrComision + valor) > saldoCliente) {
           alert('SALDO INSUFICIENTE');
         }
       }
       else {
-        let vr_comision = parseFloat(valor * 0.05);
-        if ((vr_comision + valor) <= saldo_cliente) {
-          comision.innerHTML = 'Valor comision transferencia: $ ' + vr_comision + 
+        let vrComision = parseFloat(valor * 0.05);
+        if ((vrComision + valor) <= saldoCliente) {
+          comision.innerHTML = 'Valor comision transferencia: $ ' + vrComision + 
           '</br> (Comision de traslado a otros bancos equivalente al 5%)';
-          saldo_cliente -= vr_comision + valor;
-          saldofin.innerHTML = 'Saldo final: $ ' + saldo_cliente;
+          saldoCliente -= vrComision + valor;
+          saldoFin.innerHTML = 'Saldo final: $ ' + saldoCliente;
         }
-        else if ((vr_comision + valor) > saldo_cliente) {
+        else if ((vrComision + valor) > saldoCliente) {
+          comision.innerHTML = 'Valor comision transferencia: $ ' + vrComision + 
+          '</br> (Comision de traslado a otros bancos equivalente al 5%)';
           alert('SALDO INSUFICIENTE');
         }
       }
