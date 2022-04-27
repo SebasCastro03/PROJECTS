@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> TRANSFERENCIA</title>
+  </head>
+  <body>
+    <h1>PLATAFORMA DE TRANSFERENCIAS</h1>
+    <p>BANCO DE ORIGEN: <select id="bOrigen" name="bcoOrigen">
+                         <option> </option>
+                         <option value="BANCOLOMBIA">BANCOLOMBIA</option>
+                         <option value="DAVIVIENDA">DAVIVIENDA</option>
+                         <option value="CAJA SOCIAL">CAJA SOCIAL</option>
+                         <option value="AV VILLAS">AV VILLAS</option>
+                         <option value="POPULAR">POPULAR</option>
+                         <option value="OCCIDENTE">OCCIDENTE</option>
+                        </select></p>
+    <p>DIGITE SALDO EN CUENTA <input type="number" id="saldo"></p>
+    <p>BANCO DE DESTINO: <select id="bDestino" name="bcoDestino">
+                          <option> </option>
+                          <option value="BANCOLOMBIA">BANCOLOMBIA</option>
+                          <option value="DAVIVIENDA">DAVIVIENDA</option>
+                          <option value="CAJA SOCIAL">CAJA SOCIAL</option>
+                          <option value="AV VILLAS">AV VILLAS</option>
+                          <option value="POPULAR">POPULAR</option>
+                          <option value="OCCIDENTE">OCCIDENTE</option>
+                        </select></p>
+    <p>CANTIDAD DE TRANSFERENCIA: <input type="number" id="vTransf"></p>
+    <input type="button" id="transferir" value="TRANSFERIR">
+    <p id="sInicial"></p>
+    <p id="comision1"></p>
+    <p id="sFinal"></p>
+    <script src="transf.js"></script>
+  </body>
+</html>
