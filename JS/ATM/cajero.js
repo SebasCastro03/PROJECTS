@@ -13,7 +13,7 @@ for (let xx of caja) {
 
 function mostrar() {
   let dibujar = [];
-  let valorr = document.getElementById('txtdinero');
+  let valorr = document.getElementById('txtDinero');
   dinero = parseInt(valorr.value);
   for (let b of caja) {
     var saldo1 = parseInt(0);
